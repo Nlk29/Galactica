@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
 	public Rigidbody2D rb;
 
-	public Timer timer;
+	//public Timer timer;
 
 
 	void Update()
@@ -25,6 +25,6 @@ public class PlayerController : MonoBehaviour
 			rb.AddForce(Vector2.left * speed * brakingCoefficieant * Time.deltaTime);
 		}
 
-		rb.AddTorque(Input.GetAxis("Up/Down") * speed * sidewaysCoefficieant * Time.deltaTime); //Accelerates the spaceship up or down to bypass asteroids.
+		rb.AddForce(Input.GetAxis("Up/Down") * Vector2.up * speed * sidewaysCoefficieant * Time.deltaTime); //Accelerates the spaceship up or down to bypass asteroids.
 	}
 }
