@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\Core\SceneController.cs" />
      <Compile Include="Assets\Scripts\Core\ShakeCamera.cs" />
      <Compile Include="Assets\Scripts\Core\Timer.cs" />
+     <Compile Include="Assets\Scripts\Core\Tutorial.cs" />
      <Compile Include="Assets\Scripts\Player\DetectFinishLine.cs" />
      <Compile Include="Assets\Scripts\Player\HealthHandler.cs" />
      <Compile Include="Assets\Scripts\Player\MeteorDamage.cs" />

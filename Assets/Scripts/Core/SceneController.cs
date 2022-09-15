@@ -34,4 +34,14 @@ public class SceneController : MonoBehaviour
 	{
 		Application.LoadLevel("Menu");
 	}
+
+	public void tutorial()
+	{
+		Application.LoadLevel("1");
+	}
+
+	public void roguelike()
+	{
+		Application.LoadLevel("Roguelike");
+	}
 }

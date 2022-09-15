@@ -5,28 +5,81 @@ using System.Collections;
 
 public class LevelController : MonoBehaviour 
 {
-	public int highestLevel = 100;
-	public int currentLevelNumber;
-	private int levelInput;
-
-	public InputField field;
-
-	public SceneController controller;
+	//[Space(50)]
 
 
-	public void loadLevel()
+	//Meteor Generation
+	public int meteorCount = 50;
+
+	[Header("Size of meteorite field")]
+	[Header("pivot point im middle left")]
+
+	public GameObject Meteor;
+
+	[Range(10, 400)]
+	public int xRange;
+
+	[Range(0, 20)]
+	public int xClipppingRange = 5;
+
+	[Range(10, 50)]
+	public int yRange;
+
+	[Range(0, 20)]
+	public int meteorCrammingSphere = 5;
+
+	public LayerMask meteorCrammingMask;
+
+	//Player movement clamping
+	[Header("Player box")]
+
+	public Transform player;
+
+	[Range(10, 60)]
+	public int yRangeBox;
+
+	[Range(10, 60)]
+	public int leftRangeBox;
+
+	[Range(10, 400)]
+	public int rightRangeBox;
+
+	void Start()
 	{
-		int i = Int32.Parse(field.text);
-		levelInput = i;
+		BuildLevel();
+	}
 
-		if(highestLevel >= levelInput)
+	void BuildLevel()
+	{
+		//Spawns comets
+		for(int i = meteorCount; i > 0; i--)
 		{
-			controller.loadLevel(levelInput);
+
+			Vector2 position = new Vector2(player.position.x + UnityEngine.Random.Range(xClipppingRange, xRange),
+			UnityEngine.Random.Range(-yRange, yRange));
+
+			if(CheckForColliders(position))
+			{
+				Instantiate(Meteor, position, Quaternion.identity);
+			} else
+			{
+				i++;
+			}
+
+
 		}
 	}
 
-	public void saveThisLevel(int level)
+	bool CheckForColliders(Vector2 position)
 	{
+		bool isCrammed = Physics.CheckSphere(position, meteorCrammingSphere, meteorCrammingMask);
 
+		if(!isCrammed)
+		{
+			return true;
+		} else
+		{
+			return false;
+		}
 	}
 }

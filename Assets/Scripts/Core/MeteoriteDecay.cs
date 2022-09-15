@@ -3,6 +3,7 @@ using System.Collections;
 
 public class MeteoriteDecay : MonoBehaviour 
 {
+	[Range(1, 10)]
 	public int decayTime = 1;
 
 	void OnCollisionEnter2D(Collision2D collision)
