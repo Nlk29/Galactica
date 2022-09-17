@@ -6,12 +6,13 @@ using System.Collections;
 public class LevelController : MonoBehaviour 
 {
 	//[Space(50)]
-
+	[Header("Meteors")]
+	[Space]
 
 	//Meteor Generation
 	public int meteorCount = 50;
 
-	[Header("Size of meteorite field")]
+	//[Header("Size of meteorite field")]
 	[Header("pivot point im middle left")]
 
 	public GameObject Meteor;
@@ -30,6 +31,39 @@ public class LevelController : MonoBehaviour
 
 	public LayerMask meteorCrammingMask;
 
+	[Space]
+	
+	//[Space(50)]
+	[Header("Turrets")]
+	[Space]
+
+	/*
+	//Turret Generation
+	public int turretCount = 5;
+
+	//[Header("Size of meteorite field")]
+	[Header("pivot point im middle left")]
+
+	public GameObject Turret;
+
+	[Range(10, 400)]
+	public int xRangeTurret;
+
+	[Range(0, 20)]
+	public int xClipppingRangeTurret = 5;
+
+	[Range(10, 50)]
+	public int yRangeTurret;
+
+	[Range(0, 20)]
+	public int turretCrammingSphere = 5;
+
+	public LayerMask turretCrammingMask;
+
+	[Space]
+
+	*/
+
 	//Player movement clamping
 	[Header("Player box")]
 
@@ -44,11 +78,18 @@ public class LevelController : MonoBehaviour
 	[Range(10, 400)]
 	public int rightRangeBox;
 
+	private Vector2 startPoint;
+
 	void Start()
 	{
 		BuildLevel();
+		InitializeBox();
 	}
 
+	void Update()
+	{
+		ClampPlayer();
+	}
 	void BuildLevel()
 	{
 		//Spawns comets
@@ -68,6 +109,27 @@ public class LevelController : MonoBehaviour
 
 
 		}
+		
+		/*
+		//Spawns turrets
+		for(int j = meteorCount; j > 0; j--)
+		{
+
+			Vector2 position = new Vector2(player.position.x + UnityEngine.Random.Range(xClipppingRangeTurret, xRangeTurret),
+			UnityEngine.Random.Range(-yRangeTurret, yRangeTurret));
+
+			if(CheckForColliders(position))
+			{
+				Instantiate(Turret, position, Quaternion.identity);
+			} else
+			{
+				j++;
+			}
+
+
+		}
+
+		*/
 	}
 
 	bool CheckForColliders(Vector2 position)
@@ -81,5 +143,18 @@ public class LevelController : MonoBehaviour
 		{
 			return false;
 		}
+	}
+
+	void InitializeBox()
+	{
+		startPoint = transform.position;
+	}
+
+	void ClampPlayer()
+	{
+		/*
+		transform.position = new Vector2(startPoint.x + Mathf.Clamp(transform.position.x, leftRangeBox, rightRangeBox),
+			startPoint.y + Mathf.Clamp(transform.position.y, -yRangeBox, yRangeBox));
+		*/
 	}
 }
