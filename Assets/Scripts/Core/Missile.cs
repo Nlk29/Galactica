@@ -8,6 +8,8 @@ public class Missile : MonoBehaviour
 
 	private Rigidbody2D rb;
 
+	public Collider2D collider;
+
 	public GameObject Muzzleflash;
 
 	public float speed = 5f;
@@ -21,6 +23,16 @@ public class Missile : MonoBehaviour
 
 	void Start () 
 	{
+		collider.enabled = false;
+
+		if (activeTracking)
+		{
+			
+		}
+		else   
+		{
+			startEngine();
+		}
 		defaultSpeed = speed;
 		target = GameObject.FindGameObjectWithTag("Player").transform;
 		rb = GetComponent<Rigidbody2D>();
@@ -44,6 +56,14 @@ public class Missile : MonoBehaviour
 
 	void startEngine()
 	{
+		if (activeTracking)
+		{
+			collider.enabled = true;
+		} else
+		{
+			//StartCoroutine(enableCollider());
+		}
+
 		speed = defaultSpeed;
 		Muzzleflash.SetActive(true);
 	}
@@ -54,4 +74,18 @@ public class Missile : MonoBehaviour
 
 		startEngine();
 	}
+
+	IEnumerator enableCollider()
+	{
+		yield return new WaitForSeconds(2);
+
+		collider.enabled = true;
+	}
+
+	/*
+	void OnTriggerExit(Collider2D other)
+	{
+		startEngine();
+	}
+	*/
 }
