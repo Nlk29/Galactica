@@ -52,12 +52,13 @@ public class PlatformHandler : MonoBehaviour
 	private void ConsoleLogging()
 	{
 		GetCurrentPlatform ();
-		GetInstalledRam ();
-		GetInstalledGPU ();
-		GetInstalledVram ();
-		GetInstalledCPU ();
-		GetInstalledCPUCores ();
-		GetInstalledCPUThreads ();
+		GetInstalledRam();
+		GetInstalledGPU();
+		GetInstalledVram();
+		GetInstalledCPU();
+		GetInstalledCPUCores();
+		GetInstalledCPUThreads();
+		GetUsedNetworkConnection();
 	}
 
 
@@ -66,49 +67,55 @@ public class PlatformHandler : MonoBehaviour
 	//Returns platform info
 	public string GetCurrentPlatform() //Returns the current platform
 	{
-		Debug.Log ("Platform: " + System.Environment.OSVersion);
+		Debug.Log("Platform: " + System.Environment.OSVersion);
 		return System.Environment.OSVersion.ToString();
 	}
 
 	//Returns installed RAM
 	public int GetInstalledRam()
 	{
-		Debug.Log ("Installed RAM: " + SystemInfo.systemMemorySize + "MB");
+		Debug.Log("Installed RAM: " + SystemInfo.systemMemorySize + "MB");
 		return SystemInfo.systemMemorySize;
 	}
 
 	//Returns GPU type
 	public string GetInstalledGPU()
 	{
-		Debug.Log ("Graphics card:" + SystemInfo.graphicsDeviceName);
+		Debug.Log("Graphics card:" + SystemInfo.graphicsDeviceName);
 		return SystemInfo.graphicsDeviceName;
 	}
 
 	//Returns installled vRAM
 	public int GetInstalledVram()
 	{
-		Debug.Log ("Installed vRAM: " + SystemInfo.graphicsMemorySize + "MB");
+		Debug.Log("Installed vRAM: " + SystemInfo.graphicsMemorySize + "MB");
 		return SystemInfo.graphicsMemorySize;
 	}
 
 	//Returns CPU type
 	public string GetInstalledCPU()
 	{
-		Debug.Log ("Processor:" + SystemInfo.processorType);
+		Debug.Log("Processor:" + SystemInfo.processorType);
 		return SystemInfo.processorType;
 	}
 
 	//Returns CPU cores
 	public int GetInstalledCPUCores()
 	{
-		Debug.Log ("Processor Cores: " + SystemInfo.processorCount);
+		Debug.Log("Processor Cores: " + SystemInfo.processorCount);
 		return SystemInfo.processorCount;
 	}
 
 	//Returns CPU threads
 	public int GetInstalledCPUThreads()
 	{
-		Debug.Log ("Processor Threads: " + SystemInfo.processorCount * 2);
+		Debug.Log("Processor Threads: " + SystemInfo.processorCount * 2);
 		return SystemInfo.processorCount * 2;
+	}
+
+	public string GetUsedNetworkConnection()
+	{
+		Debug.Log("Network Connection: " + Application.internetReachability);
+		return Application.internetReachability.ToString();
 	}
 }

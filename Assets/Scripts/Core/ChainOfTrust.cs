@@ -21,9 +21,9 @@ public class ChainOfTrust : MonoBehaviour
 	public string[] badLanguagePack;
 	private string errorMessage = "N/A";
 	public string errorMessageRussianComputer;
-	public string errorMessageChineseComputer;
 	public string errorMessageAnyComputer;
 	public string errorMessageFailedVerification;
+	public string errorMessageFailedNetworkConnection;
 
 	/*static RegistryKey BaseFolderPath = Registry.LocalMachine;
 	static string SubFolderPath = "SYSTEM\CurrentControlSet\Control\ContentIndex\Language";*/
@@ -41,29 +41,36 @@ public class ChainOfTrust : MonoBehaviour
 			systemOk = false;
 		}
 		 Needs to be fixed*/
+
+		//Checks for banned regions by using the language pack of the computer.
 		if (languagePack == badLanguagePack [0]) //Russia
 		{
 			errorMessage = errorMessageRussianComputer;
 			systemOk = false;
-		}
-		if (languagePack == badLanguagePack [1] || languagePack == badLanguagePack[2]) //China
-		{
-			errorMessage = errorMessageChineseComputer;
-			systemOk = false;
+			Debug.LogError("badLanguagePack");
 		}
 
 		//Check file integrity of game. Piracy and cheating is not cool!
-		if (!Application.genuine) 
+		if (!Application.genuine && Application.genuineCheckAvailable) 
 		{
 			errorMessage = errorMessageFailedVerification;
 			systemOk = false;
+			Debug.LogError("failedFileIntegirtyProtection");
+		}
+
+		
+		if (Application.internetReachability.ToString() == "NotReachable")
+		{
+			errorMessage = errorMessageFailedNetworkConnection;
+			systemOk = false;
+			Debug.LogError("failedNetworkConnection");
 		}
 
 		//bypasses ChainOfTrust; uncomment only for testing purposes!
 		//systemOk = true;
 
 		//Final summary of checkup
-		if (systemOk) 
+		if (systemOk || Application.isEditor) 
 		{
 			controller.mainMenu ();
 		} else 
@@ -83,19 +90,16 @@ public class ChainOfTrust : MonoBehaviour
  * badLanguagePack:
  * 
  * - ru-RU
- * - zh-HK
- * - zh-CH
- * - be-BY
  * 
  * errorMessageRussianComputer:
- * - On your hands is the blood of thousands of ukranians. As a sanction to President Putin's illegal, war-crime-committing actions in ukraine and his outrageous, fake-news based war-propaganda, I've decided to block this game on russian computers. Please use western media to inform yourself about the truth and help collapseing that cardhouse of lies.
- * 
- * errorMessageChineseComputer:
- * - It is sad to see how china's gouverment treats uigurs in their supression camps. As a sanction on this and other outrageous things like threatenning taiwan, I've decided to block this game on chinese computers.
- * 
- * errorMessageAnyComputer
- * - Sorry, Galactica isn't available in your country. I may did this because of some politics that i would describe as "Not Okay!" like f. ex. the violation of UN human rights. If you think that this is a mistake, please get in touch with me.
+ * - In 2022, The gouverment of the russian federation has decided to legalize software piracy. While this game is open source, stealing commercial software is nothing other that spitting in the face of the developers. So I've decided to block this game on russian systems.
  * 
  * errorMessageFailedVerification:
  * - Cheating and Piracy is not cool! It seem like the game files have been altered to possibly get an unfair advantage. (Or even pirateing the game should it go on sale once) This is a very big red flag and as a consequence, the game will delete itself in 30s.
+ * 
+ * errorMessageFailedActivation:
+ * - It seems like your windows copy isn't activated. To prevent cheating you have to actiavte Wndows. Go on this site for more information: https://support.microsoft.com/en-us/windows/activate-windows-c39005d4-95ee-b91e-b399-2820fda32227 (Galactica and its creators are not affiliated with Microsoft in any ways)
+ * 
+ * errorMessageFailedNetworkConnection:
+ * - This game relies on a connection to backend servers. For managing accounts, remote management and ota updates. So although this game runs on XP, an internet connection is required.
  */
