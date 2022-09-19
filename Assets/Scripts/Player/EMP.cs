@@ -21,14 +21,11 @@ public class EMP : MonoBehaviour
 
 	void Update () 
 	{
-		if(Input.GetButtonDown("Fire1") && !emp)
+		if (Input.GetButtonDown("Fire1") && !emp)
 		{
 			if(isUI)
 			{
 				StartCoroutine(FlashScreen());
-			} else
-			{
-				Destroy(gameObject);
 			}
 		}
 	}

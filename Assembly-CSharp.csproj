@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Core\ChainOfTrust.cs" />
+     <Compile Include="Assets\Scripts\Core\EMPDestroy.cs" />
      <Compile Include="Assets\Scripts\Core\LevelController.cs" />
      <Compile Include="Assets\Scripts\Core\MeteoriteDecay.cs" />
      <Compile Include="Assets\Scripts\Core\Missile.cs" />
