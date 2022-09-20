@@ -8,6 +8,13 @@ public class DetectFinishLine : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-		controller.youWon();
+		string colliderName = collider.gameObject.ToString();
+
+		Debug.Log(colliderName);
+
+		if(colliderName == "base (UnityEngine.GameObject)")
+		{
+			controller.youWon();
+		}
 	}
 }

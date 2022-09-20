@@ -45,6 +45,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\DragWindow.cs" />
      <Compile Include="Assets\Scripts\Core\ChainOfTrust.cs" />
      <Compile Include="Assets\Scripts\Core\EMPDestroy.cs" />
      <Compile Include="Assets\Scripts\Core\LevelController.cs" />
@@ -63,11 +64,11 @@
      <Compile Include="Assets\Scripts\UI\Compass.cs" />
      <Compile Include="Assets\Scripts\UI\EMPMessage.cs" />
      <Compile Include="Assets\Scripts\UI\FlashText.cs" />
+     <Compile Include="Assets\Scripts\UI\HideText.cs" />
      <Compile Include="Assets\Scripts\UI\QuitGame.cs" />
      <Compile Include="Assets\Scripts\UI\ShakeCameraOnCollision.cs" />
      <Compile Include="Assets\Scripts\UI\Timer.cs" />
      <Compile Include="Assets\Scripts\UI\Tutorial.cs" />
-     <Compile Include="Assets\Scripts\UI\setCursor.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
