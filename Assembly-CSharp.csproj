@@ -45,6 +45,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ChangeSpriteByHealth.cs" />
      <Compile Include="Assets\Scripts\Core\ChainOfTrust.cs" />
      <Compile Include="Assets\Scripts\Core\EMPDestroy.cs" />
      <Compile Include="Assets\Scripts\Core\LevelController.cs" />
@@ -54,7 +55,6 @@
      <Compile Include="Assets\Scripts\Core\SceneController.cs" />
      <Compile Include="Assets\Scripts\Core\ShakeCamera.cs" />
      <Compile Include="Assets\Scripts\Core\Turret.cs" />
-     <Compile Include="Assets\Scripts\Player\CounterMissileLauncher.cs" />
      <Compile Include="Assets\Scripts\Player\DetectFinishLine.cs" />
      <Compile Include="Assets\Scripts\Player\EMP.cs" />
      <Compile Include="Assets\Scripts\Player\HealthHandler.cs" />
@@ -68,6 +68,7 @@
      <Compile Include="Assets\Scripts\UI\HideText.cs" />
      <Compile Include="Assets\Scripts\UI\QuitGame.cs" />
      <Compile Include="Assets\Scripts\UI\ShakeCameraOnCollision.cs" />
+     <Compile Include="Assets\Scripts\UI\Splash.cs" />
      <Compile Include="Assets\Scripts\UI\Timer.cs" />
      <Compile Include="Assets\Scripts\UI\Tutorial.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

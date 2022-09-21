@@ -79,6 +79,7 @@
 -define:UNITY_EDITOR_WIN
 -define:UNITY_TEAM_LICENSE
 -define:CROSS_PLATFORM_INPUT
+Assets/ChangeSpriteByHealth.cs
 Assets/Scripts/Core/ChainOfTrust.cs
 Assets/Scripts/Core/EMPDestroy.cs
 Assets/Scripts/Core/LevelController.cs
@@ -88,7 +89,7 @@ Assets/Scripts/Core/PlatformHandler.cs
 Assets/Scripts/Core/SceneController.cs
 Assets/Scripts/Core/ShakeCamera.cs
 Assets/Scripts/Core/Turret.cs
-Assets/Scripts/Player/CounterMissileLauncher.cs
+Assets/Scripts/Player/ChangeSpriteByHealth.cs
 Assets/Scripts/Player/DetectFinishLine.cs
 Assets/Scripts/Player/EMP.cs
 Assets/Scripts/Player/HealthHandler.cs
@@ -102,6 +103,7 @@ Assets/Scripts/UI/FlashText.cs
 Assets/Scripts/UI/HideText.cs
 Assets/Scripts/UI/QuitGame.cs
 Assets/Scripts/UI/ShakeCameraOnCollision.cs
+Assets/Scripts/UI/Splash.cs
 Assets/Scripts/UI/Timer.cs
 Assets/Scripts/UI/Tutorial.cs
 -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Runtime.Serialization.dll"
