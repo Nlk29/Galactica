@@ -79,7 +79,7 @@
 -define:UNITY_EDITOR_WIN
 -define:UNITY_TEAM_LICENSE
 -define:CROSS_PLATFORM_INPUT
-Assets/HideText.cs
+Assets/DragWindow.cs
 Assets/Scripts/Core/ChainOfTrust.cs
 Assets/Scripts/Core/EMPDestroy.cs
 Assets/Scripts/Core/LevelController.cs
@@ -96,8 +96,10 @@ Assets/Scripts/Player/HealthHandler.cs
 Assets/Scripts/Player/MeteorDamage.cs
 Assets/Scripts/Player/PlayerController.cs
 Assets/Scripts/UI/Compass.cs
+Assets/Scripts/UI/DragEnabler.cs
 Assets/Scripts/UI/EMPMessage.cs
 Assets/Scripts/UI/FlashText.cs
+Assets/Scripts/UI/HideText.cs
 Assets/Scripts/UI/QuitGame.cs
 Assets/Scripts/UI/ShakeCameraOnCollision.cs
 Assets/Scripts/UI/Timer.cs

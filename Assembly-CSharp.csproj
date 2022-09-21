@@ -45,7 +45,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\DragWindow.cs" />
      <Compile Include="Assets\Scripts\Core\ChainOfTrust.cs" />
      <Compile Include="Assets\Scripts\Core\EMPDestroy.cs" />
      <Compile Include="Assets\Scripts\Core\LevelController.cs" />
@@ -62,6 +61,8 @@
      <Compile Include="Assets\Scripts\Player\MeteorDamage.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\UI\Compass.cs" />
+     <Compile Include="Assets\Scripts\UI\DragEnabler.cs" />
+     <Compile Include="Assets\Scripts\UI\DragWindow.cs" />
      <Compile Include="Assets\Scripts\UI\EMPMessage.cs" />
      <Compile Include="Assets\Scripts\UI\FlashText.cs" />
      <Compile Include="Assets\Scripts\UI\HideText.cs" />
