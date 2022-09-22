@@ -47,6 +47,8 @@ public class Turret : MonoBehaviour
 
 	void FireAtPlayer()
 	{
+		Debug.Log("fired at player");
+
 		float length = Vector2.Distance(player.position, transform.position);
 
 		if (length <= fireRange)
@@ -65,6 +67,7 @@ public class Turret : MonoBehaviour
 	{
 		yield return new WaitForSeconds(time);
 
+		Debug.Log("ended turret cooldown");
 		cooldown = false;
 	}
 }

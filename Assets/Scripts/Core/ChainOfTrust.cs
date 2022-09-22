@@ -33,7 +33,7 @@ public class ChainOfTrust : MonoBehaviour
 		//startup anti-mod/bad player checks
 
 		//Check for banned Languages to ban certain countries from running the game; Right now these are Russia and China
-		Debug.Log (CultureInfo.InstalledUICulture);
+		Debug.Log("System Language: " + CultureInfo.InstalledUICulture);
 		string languagePack = CultureInfo.InstalledUICulture.ToString();
 		/*if (badLanguagePack.Contains(languagePack)) //Any banned Language Pack
 		{
@@ -72,9 +72,13 @@ public class ChainOfTrust : MonoBehaviour
 		//Final summary of checkup
 		if (systemOk || Application.isEditor) 
 		{
+			Debug.Log("Verification complete");
+
 			controller.mainMenu ();
 		} else 
 		{
+			Debug.LogError("Verification failed!");
+
 			status.text = errorMessage;
 			if(brickGame)
 			{

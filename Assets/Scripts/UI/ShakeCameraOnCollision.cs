@@ -14,6 +14,8 @@ public class ShakeCameraOnCollision : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+		Debug.Log("shook camera");
+
 		for(int i = 0; i < shakingCount; i++)
 		{
         	camera.transform.position = new Vector2(0, 0);

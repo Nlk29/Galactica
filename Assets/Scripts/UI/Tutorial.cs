@@ -8,6 +8,8 @@ public class Tutorial : MonoBehaviour
     {
         if(PlayerPrefs.GetInt("doTutorial") != 1)
         {
+            Debug.Log("loaded tutorial");
+
             PlayerPrefs.SetInt("doTutorial", 1);
 
             Application.LoadLevel("1");

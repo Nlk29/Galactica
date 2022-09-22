@@ -13,6 +13,8 @@ public class MeteorDamage : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
+		Debug.Log("took damage by collision");
+
 		healthHandler.takeDamage(Random.Range(minimumMeteorDamage, maximumMeteorDamage));
 		shakeCamera.shake(shakeTime);
 	}

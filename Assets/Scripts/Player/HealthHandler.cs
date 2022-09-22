@@ -22,6 +22,8 @@ public class HealthHandler : MonoBehaviour
 
 	public void takeDamage(int amount) //this function is responsible for taking damage. It decreases HP by specified amount and checks if player can be still alive.
 	{
+		Debug.Log("took " + amount + " points of damage");
+
 		HP -= amount; 
 
 		if(HP <= 0)
@@ -35,6 +37,8 @@ public class HealthHandler : MonoBehaviour
 
 	public void Die() //Lets the player die and notifies other scripts via isDead var
 	{
+		Debug.Log("killed player");
+
 		isDead = true;
 
 		Destroy(sprite);

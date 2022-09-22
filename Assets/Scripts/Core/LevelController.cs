@@ -92,6 +92,8 @@ public class LevelController : MonoBehaviour
 	}
 	void BuildLevel()
 	{
+		Debug.Log("Building level");
+
 		//Spawns comets
 		for(int i = meteorCount; i > 0; i--)
 		{

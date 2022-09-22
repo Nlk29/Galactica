@@ -27,13 +27,21 @@ public class Splash : MonoBehaviour
 		"10 PRINT ''Hello World'' : GOTO 10",
 		"6502",
 		"Hello I'm Macintosh",
-		"Penny, Penny, Penny"
+		"Penny, Penny, Penny",
+		"I'm the creeper. Catch me if you can.",
+		"Minecraft",
+		"Fortnite sucks!",
+		"Aquaman sucks!",
+		"Howard help! My hand is stuck in the garbage disposer!",
+		"Sheldon that's ridiculous!"
 	};
 
 	private Text textBox;
 
 	void Start () 
 	{
+		Debug.Log("set splash");
+
 		textBox = GetComponent<Text>();
 
 		SetSplash();

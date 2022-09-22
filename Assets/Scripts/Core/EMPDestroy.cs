@@ -7,7 +7,8 @@ public class EMPDestroy : MonoBehaviour
 	{
 		if (Input.GetKey(KeyCode.E))
 		{
-			Debug.Log("destroyed!");
+			Debug.Log("destroyed rocket with EMP");
+
 			Destroy(gameObject);
 		}
 	}

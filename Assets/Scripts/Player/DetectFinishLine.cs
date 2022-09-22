@@ -14,6 +14,8 @@ public class DetectFinishLine : MonoBehaviour
 
 		if(colliderName == "base (UnityEngine.GameObject)")
 		{
+			Debug.Log("finished");
+
 			controller.youWon();
 		}
 	}

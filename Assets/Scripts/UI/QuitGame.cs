@@ -7,6 +7,8 @@ public class QuitGame : MonoBehaviour
 	{
 		if(Input.GetKey("space"))
 		{
+			Debug.Log("ended game");
+
 			Application.Quit();
 		}
 	}

@@ -23,6 +23,8 @@ public class Missile : MonoBehaviour
 
 	void Start () 
 	{
+		Debug.Log("spawned rocket");
+
 		collider.enabled = false;
 
 		if (activeTracking)
@@ -56,6 +58,8 @@ public class Missile : MonoBehaviour
 
 	void startEngine()
 	{
+		Debug.Log("startEngine");
+
 		if (activeTracking)
 		{
 			collider.enabled = true;

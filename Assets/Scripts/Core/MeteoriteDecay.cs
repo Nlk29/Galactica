@@ -15,6 +15,7 @@ public class MeteoriteDecay : MonoBehaviour
 	{
 		yield return new WaitForSeconds(decayTime);
 
+		Debug.Log("destroyed comet");
 		Destroy(gameObject);
 	}
 }

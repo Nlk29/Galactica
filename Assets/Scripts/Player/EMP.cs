@@ -32,6 +32,8 @@ public class EMP : MonoBehaviour
 
 	IEnumerator FlashScreen()
 	{
+		Debug.Log("started flash");
+
 		emp = true;
 		text.SetActive(true);
 
@@ -67,5 +69,7 @@ public class EMP : MonoBehaviour
 
 		emp = false;
 		text.SetActive(false);
+
+		Debug.Log("ended flash");
 	}
 }
