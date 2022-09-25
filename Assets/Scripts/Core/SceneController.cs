@@ -4,7 +4,6 @@ using System.Collections;
 
 public class SceneController : MonoBehaviour
 {
-
 	public void startGame()
 	{
 		Application.LoadLevel("0");
@@ -52,7 +51,7 @@ public class SceneController : MonoBehaviour
 		Application.LoadLevel("1");
 	}
 
-	public void roguelike()
+	public void roguelike(bool killWindow)
 	{
 		Debug.Log("loaded roguelike");
 
