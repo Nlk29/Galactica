@@ -7,7 +7,7 @@ public class ExitGame : MonoBehaviour
 	{
 		if(Input.GetKeyDown(KeyCode.Space))
 		{
-			Debug.Log("endedn game");
+			Debug.Log("ended game");
 
 			Application.Quit();
 		}
