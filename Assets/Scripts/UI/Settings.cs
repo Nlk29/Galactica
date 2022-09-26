@@ -14,10 +14,6 @@ public class Settings : MonoBehaviour
 
 	public Text qualityText;
 
-	public Dropdown resolutionDropdown;
-
-	Resolution[] resolutions;
-
 	void Start()
 	{
 		//Load volume
