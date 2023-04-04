@@ -17,8 +17,6 @@ public class EMPMessage : MonoBehaviour
 
 	IEnumerator Flash()
 	{
-		Debug.Log("flashed screen");
-
 		text.enabled = true;
 		yield return new WaitForSeconds(flash);
 

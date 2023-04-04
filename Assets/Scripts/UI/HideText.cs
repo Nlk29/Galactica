@@ -17,8 +17,6 @@ public class HideText : MonoBehaviour
 	{
 		if(text.text == "")
 		{
-			Debug.Log("hid window");
-
 			bg.enabled = false;
 			bar.enabled = false;
 			exit.enabled = false;
@@ -26,8 +24,6 @@ public class HideText : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log("showed window");
-
 			bg.enabled = true;
 			bar.enabled = true;
 			exit.enabled = true;

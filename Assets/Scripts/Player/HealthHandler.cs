@@ -15,7 +15,12 @@ public class HealthHandler : MonoBehaviour
 
 	public SceneController controller;
 
-	void Setup()
+	[SerializeField]
+	private AudioClip hitSound;
+	[SerializeField]
+	private AudioSource hitSoundSource;
+
+	void Awake()
 	{
 		Time.timeScale = 1;
 	}
@@ -33,6 +38,7 @@ public class HealthHandler : MonoBehaviour
 
 		HPstring = HP.ToString() + "%";
 		text.text = HPstring;
+		StartCoroutine(playSound());
 	}
 
 	public void Die() //Lets the player die and notifies other scripts via isDead var
@@ -47,5 +53,13 @@ public class HealthHandler : MonoBehaviour
 		controller.gameOver();
 
 		//stop timer
+	}
+
+	IEnumerator playSound()
+	{
+		hitSoundSource.clip = hitSound;
+		hitSoundSource.enabled = true;
+		yield return new WaitForSeconds(hitSound.length);
+		hitSoundSource.enabled = false;
 	}
 }

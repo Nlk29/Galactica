@@ -47,7 +47,6 @@ public class Turret : MonoBehaviour
 
 	void FireAtPlayer()
 	{
-		Debug.Log("fired at player");
 
 		float length = Vector2.Distance(player.position, transform.position);
 
@@ -58,7 +57,6 @@ public class Turret : MonoBehaviour
 				Instantiate(missile, firePoint.position, transform.rotation);
 				cooldown = true;
 				StartCoroutine(doCooldown(cooldownTime));
-				Debug.Log("fired");
 			}
 		}
 	}
@@ -67,7 +65,6 @@ public class Turret : MonoBehaviour
 	{
 		yield return new WaitForSeconds(time);
 
-		Debug.Log("ended turret cooldown");
 		cooldown = false;
 	}
 }
