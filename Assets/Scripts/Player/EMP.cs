@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using UnityEngine.iOS;
 using System.Collections.Generic;
 
 public class EMP : MonoBehaviour
@@ -47,9 +46,16 @@ public class EMP : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetButtonDown("Fire1") && !emp && cooldown <= 0f)
+		if(Input.GetButtonDown("Fire1") && !emp && cooldown <= 0f)
 		{
-			if (isUI)
+			emp = true;
+
+			StartCoroutine(FlashScreen());
+		}
+
+		if(emp)
+		{
+			if(isUI)
 			{
 				//GameObject.FindGameObjectsWithTag("Missile");
 				foreach (GameObject i in GameObject.FindGameObjectsWithTag("Missile"))
@@ -57,7 +63,7 @@ public class EMP : MonoBehaviour
 					StartCoroutine(DestroyMissiles(i));
 				}
 
-				StartCoroutine(FlashScreen());
+				
 			}
 		}
 
@@ -76,29 +82,32 @@ public class EMP : MonoBehaviour
 
 	IEnumerator DestroyMissiles(GameObject missile)
 	{
-		
-
-		missile.GetComponent<Animator>().SetTrigger("Exploding");
-		missile.GetComponent<Missile>().enabled = false;
-
-		float rotation = Random.Range(minRotation, maxRotation);
-		if(Random.Range(0f, 1f) < lrDistribution)
+		if(!missile.GetComponent<Missile>().destroyed)
 		{
-			rotation = -rotation;
+			missile.GetComponent<Missile>().destroyed = true;
+
+			missile.GetComponent<Animator>().SetTrigger("Exploding");
+			Debug.Log(missile.GetComponent<Animator>().ToString());
+			missile.GetComponent<Missile>().enabled = false;
+
+			float rotation = Random.Range(minRotation, maxRotation);
+			if(Random.Range(0f, 1f) < lrDistribution)
+			{
+				rotation = -rotation;
+			}
+			missile.transform.rotation = new Quaternion(0f, 0f, rotation, 0f);
+			missile.GetComponent<Rigidbody2D>().isKinematic = false;
+			missile.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(1000, -1000), Random.Range(1000, -1000)));
+
+			yield return new WaitForSeconds(explodingAnimationTime);
+
+			Destroy(missile);
 		}
-		missile.transform.rotation = new Quaternion(0f, 0f, rotation, 0f);
-		missile.GetComponent<Rigidbody2D>().isKinematic = false;
-		missile.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(1000, -1000), Random.Range(1000, -1000)));
 
-		yield return new WaitForSeconds(explodingAnimationTime);
-
-		Destroy(missile);
 	}
 
 	IEnumerator FlashScreen()
 	{
-
-		emp = true;
 		text.SetActive(true);
 
 		for (int i = 0; i < flashes; i++)

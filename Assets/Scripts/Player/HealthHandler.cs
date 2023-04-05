@@ -8,6 +8,7 @@ public class HealthHandler : MonoBehaviour
 	string HPstring;
 
 	public int HP = 100; //Health points of player
+	private int defaultHP;
 
 	public bool isDead = false; //For other scripts to check if the player is dead
 
@@ -25,6 +26,11 @@ public class HealthHandler : MonoBehaviour
 		Time.timeScale = 1;
 	}
 
+	void Start()
+	{
+		defaultHP = HP;
+	}
+
 	public void takeDamage(int amount) //this function is responsible for taking damage. It decreases HP by specified amount and checks if player can be still alive.
 	{
 		Debug.Log("took " + amount + " points of damage");
@@ -36,8 +42,7 @@ public class HealthHandler : MonoBehaviour
 			Die();
 		}
 
-		HPstring = HP.ToString() + "%";
-		text.text = HPstring;
+		text.text = Mathf.Clamp(HP, 0, defaultHP).ToString() + "%";
 		StartCoroutine(playSound());
 	}
 

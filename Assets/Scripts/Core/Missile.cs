@@ -21,6 +21,8 @@ public class Missile : MonoBehaviour
 
 	public bool activeTracking = true;
 
+	public bool destroyed = false;
+
 	void Start () 
 	{
 		Debug.Log("spawned rocket");

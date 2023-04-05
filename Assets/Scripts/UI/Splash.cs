@@ -40,8 +40,6 @@ public class Splash : MonoBehaviour
 
 	void Start () 
 	{
-		Debug.Log("set splash");
-
 		textBox = GetComponent<Text>();
 
 		SetSplash();

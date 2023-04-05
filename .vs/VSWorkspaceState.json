@@ -3,9 +3,8 @@
     "",
     "\\Assets",
     "\\Assets\\Scripts",
-    "\\Assets\\Scripts\\Player",
-    "\\Library\\ShaderCache"
+    "\\Assets\\Scripts\\Core"
   ],
-  "SelectedNode": "\\Assets\\Scripts\\Player\\HealthHandler.cs",
+  "SelectedNode": "\\Assets\\Scripts\\Core\\LevelController.cs",
   "PreviewInSolutionExplorer": false
 }

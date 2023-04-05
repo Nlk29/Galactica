@@ -27,7 +27,13 @@ public class Settings : MonoBehaviour
 
 	public void SetVolume(float volume)
 	{
-		audioMixer.SetFloat("Master", volume);
+		if(volume > -25)
+		{
+			audioMixer.SetFloat("Master", volume);
+		} else
+		{
+			audioMixer.SetFloat("Master", -60f);
+		}
 
 		PlayerPrefs.SetFloat("masterVolume", volume);
 	}
