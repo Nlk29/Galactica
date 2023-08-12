@@ -65,9 +65,13 @@ public class LevelController : MonoBehaviour
 	*/
 
 	//Player movement clamping
-	[Header("Player box")]
 
 	public Transform player;
+
+	/*
+	 * The RangeBox is  to determine a box around the player where no
+	 * Villans and meteorites shall be generated.
+	 */
 
 	[Range(10, 60)]
 	public int yRangeBox;
@@ -93,26 +97,18 @@ public class LevelController : MonoBehaviour
 	void BuildLevel()
 	{
 		//Spawns comets
-		for(int i = meteorCount; i > 0; i--)
+		for(int i = 0; i < meteorCount; i++)
 		{
 
 			Vector2 position = new Vector2(player.position.x + UnityEngine.Random.Range(xClipppingRange, xRange),
 			UnityEngine.Random.Range(-yRange, yRange));
 
-			if(CheckForColliders(position))
-			{
-				Instantiate(Meteor, position, Quaternion.identity);
-			} else
-			{
-				i++;
-			}
-
-
+			Instantiate(Meteor, position, Quaternion.identity);
 		}
 		
 		/*
 		//Spawns turrets
-		for(int j = meteorCount; j > 0; j--)
+		for(int i = meteorCount; i > 0; i--)
 		{
 
 			Vector2 position = new Vector2(player.position.x + UnityEngine.Random.Range(xClipppingRangeTurret, xRangeTurret),
@@ -123,7 +119,7 @@ public class LevelController : MonoBehaviour
 				Instantiate(Turret, position, Quaternion.identity);
 			} else
 			{
-				j++;
+				i++;
 			}
 
 
@@ -132,18 +128,12 @@ public class LevelController : MonoBehaviour
 		*/
 	}
 
+	/*
 	bool CheckForColliders(Vector2 position)
 	{
-		bool isCrammed = Physics.CheckSphere(position, meteorCrammingSphere, meteorCrammingMask);
-
-		if(!isCrammed)
-		{
-			return true;
-		} else
-		{
-			return false;
-		}
+		return Physics2D.OverlapCircle(position, meteorCrammingSphere, meteorCrammingMask);
 	}
+	*/
 
 	void InitializeBox()
 	{

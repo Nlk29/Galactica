@@ -29,14 +29,11 @@ public class Missile : MonoBehaviour
 
 		collider.enabled = false;
 
-		if (activeTracking)
-		{
-			
-		}
-		else   
+		if(!activeTracking)
 		{
 			startEngine();
 		}
+
 		defaultSpeed = speed;
 		target = GameObject.FindGameObjectWithTag("Player").transform;
 		rb = GetComponent<Rigidbody2D>();

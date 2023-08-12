@@ -51,7 +51,7 @@ public class PlatformHandler : MonoBehaviour
 	//Just to get system info comments in the console
 	private void ConsoleLogging()
 	{
-		GetCurrentPlatform ();
+		GetCurrentPlatform();
 		GetInstalledRam();
 		GetInstalledGPU();
 		GetInstalledVram();
